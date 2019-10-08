@@ -1,0 +1,12 @@
+{'author': u'Thomas Wollner',
+ 'description': u'OSPF Neighborship State Check\n\nTh.L. 15-06-2018: changed item from neighbor id to neighbor address\n                  added events as perfdata (incl. metrics file)\n                  moved part of the output to long output\n',
+ 'download_url': 'http://exchange.check-mk.org/',
+ 'files': {'checkman': ['ospf_neighbor'],
+           'checks': ['ospf_neighbor'],
+           'web': ['plugins/metrics/ospf_neighbor.py']},
+ 'name': 'ospf_neighbor',
+ 'num_files': 3,
+ 'title': u'OSPF Neighbor State Check',
+ 'version': '20180806.v1.2',
+ 'version.min_required': '1.2.8b8',
+ 'version.packaged': '1.4.0p35'}
