@@ -31,6 +31,7 @@
 #                   added events as perfdata (incl. metrics file)
 #                   moved part of the output to long output
 #                   a little code cleanup to better match coding guide lines
+#       03-11-2019: moved 'events' from infotext to longoutput
 #
 ###############################################################################
 
@@ -124,7 +125,7 @@ def check_ospf_neighbor(item, params, info):
 
             if events:
                 events = int(events)
-                output += ', Events: %d' % events
+                longoutput += '\nEvents: %d' % events
                 perfdata.append(['ospf_events', events])
 
             if options:
