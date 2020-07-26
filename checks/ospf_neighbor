@@ -72,6 +72,7 @@
 factory_settings['ospf_neighbor_default_levels'] = {
 }
 
+
 def parse_ospf_neighbor(info):
     def ospf_nbr_hellosuppressed(st):
         names = {'1': 'true',
@@ -131,7 +132,7 @@ def parse_ospf_neighbor(info):
 
     parsed = {}
     for ip, rtrid, options, prio, state, events, permanence, hellosup, helperstatus, helperage, helperexitreason in info:
-        parsed[ip]={}
+        parsed[ip] = {}
         parsed[ip]['rtrid'] = rtrid
         parsed[ip]['options'] = ospf_nbr_options(options)
         parsed[ip]['prio'] = prio
@@ -148,7 +149,7 @@ def parse_ospf_neighbor(info):
 
 def inventory_ospf_neighbor(parsed):
     for neighbor in parsed.keys():
-        yield  neighbor, None
+        yield neighbor, None
 
 
 def check_ospf_neighbor(item, params, parsed):
@@ -206,9 +207,9 @@ def check_ospf_neighbor(item, params, parsed):
             ('\nNeighbor helper status', neighbor['helperstatus']),
             ('\nNeighbor helper age', neighbor['helperage']),
             ('\nNeighbor helper exit reason', neighbor['helperexitreason']),
-            ]:
+        ]:
             if value != '':
-                longoutput += '%s: %s' %(text, value)
+                longoutput += '%s: %s' % (text, value)
 
         yield 0, infotext + longoutput, perfdata
     else:
@@ -239,9 +240,5 @@ check_info['ospf_neighbor'] = {
                                 12,  # 'ospfNbrRestartHelperStatus'
                                 13,  # 'ospfNbrRestartHelperAge'
                                 14,  # 'ospfNbrRestartHelperExitReason'
-                                ]
-                                ),
- }
-
-
-
+                               ]),
+                        }
