@@ -46,9 +46,10 @@ description:
 
  {NbrOptions:}
  A BIT Mask corresponding to the neighbors options field. 
- Bit 0, if set, indicates that the area accepts and operates on external information; of zero, it is a stub area.
- Bit 1, if set, indicates that the system will operate on Type of Service metrics other than TOS 0.
- If zero, the neighbor will ignore all metrics except the TOS 0 metric.
+ Bit 0, if set, indicates that the area accepts and operates on external information; ff zero, it is a stub area.
+ Bit 1, if set, indicates that the system will operate on Type of Service metrics other than TOS 0. If zero, the neighbor will ignore all metrics except the TOS 0 metric.
+ Bit 2, if set, indicates that the system is capable of routing IP multicast datagrams, that is that it implements the multicast extensions to OSPF.
+ Bit 3, if set, indicates that the associated area is an NSSA.These areas are capable of carrying type-7 external advertisements, which are translated into type-5 external advertisements at NSSA borders.
 
  {NbrPriority:}
  The priority of this neighbor in the designated router election algorithm. The value 0 signifies that the neighbor is not eligible to becom the designated router on this particular network.
