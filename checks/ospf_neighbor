@@ -163,7 +163,7 @@ def check_ospf_neighbor(item, params, parsed):
                  '8': 'full'}
         return names.get(st, 'unknown: %s' % st)
 
-    # default checkmk states for ctsxSxpConnStatus
+    # default checkmk states for ospfNbrState
     neighborstate = {
         '1': 2,  # down
         '2': 1,  # attempt
