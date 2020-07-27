@@ -3,4 +3,4 @@
             moved part of the output to long output
             a little code cleanup to better match coding guide lines
 2019-11-03: moved 'events' from infotext to longoutput
-2020-07-26: added parse section, alias, wato for alias and state
+2020-07-26: added parse section, alias, wato for alias, not found and state
