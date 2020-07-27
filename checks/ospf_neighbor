@@ -175,7 +175,7 @@ def check_ospf_neighbor(item, params, parsed):
     }
 
     alias = None
-    notFoundState = 3
+    notFoundState = 2
 
     for neighbour, neighbourAlias, neighbourNotFoundState in params.get('peer_list', []):
         if item == neighbour:
@@ -198,16 +198,16 @@ def check_ospf_neighbor(item, params, parsed):
         perfdata.append(['ospf_events', neighbor['events']])
 
         for text, value in [
-            ('\nNeighbor options', neighbor['options']),
-            ('\nNeighbor priority', neighbor['prio']),
-            ('\nNeighbor permanence', neighbor['permanence']),
-            ('\nNeighbor hello suppressed', neighbor['hellosup']),
-            ('\nNeighbor helper status', neighbor['helperstatus']),
-            ('\nNeighbor helper age', neighbor['helperage']),
-            ('\nNeighbor helper exit reason', neighbor['helperexitreason']),
+            ('options', neighbor['options']),
+            ('priority', neighbor['prio']),
+            ('permanence', neighbor['permanence']),
+            ('hello suppressed', neighbor['hellosup']),
+            ('helper status', neighbor['helperstatus']),
+            ('helper age', neighbor['helperage']),
+            ('helper exit reason', neighbor['helperexitreason']),
         ]:
             if value != '':
-                longoutput += '%s: %s' % (text, value)
+                longoutput += '\nNeighbor %s: %s' % (text, value)
 
         yield 0, infotext + longoutput, perfdata
     else:
