@@ -2,10 +2,11 @@
 
 Monitors status of OSPF neighbors.
 
-This check is originaly from Thomas Wollner (tw[at]wollner-net[dot]de).
+**NOTE**: This check is originaly from Thomas Wollner (tw[at]wollner-net[dot]de).
 
 I changed *item* from neighbor **ID** to neighbor **IP**, added events as perfdata (incl. metrics file),\
-moved part of the output to long output and done a little code cleanup to better match coding guide lines
+moved part of the output to long output and done a little code cleanup to better match coding guide lines.\
+Added WATO for Alias name, map check states to OSPF Neighbor state, state if neighbour not found in SNMP data.
 
 Check Info:
 
