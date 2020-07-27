@@ -37,8 +37,6 @@
 #  2019-11-03: moved 'events' from infotext to longoutput
 #  2020-07-26: added parse section, alias, wato for alias and state
 #
-#
-#
 ###############################################################################
 
 # Example Agent Output:
