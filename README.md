@@ -1,4 +1,6 @@
-# OSPF neighbors
+# OSPF neighbors [(Download the MKP package)](/../../../-/raw/master/ospf_neighbor.mkp "Download MKP package")
+
+ **Note: this package is for CheckMK version 2.x. For other versions see the corresponding branch.**
 
 Monitors status of OSPF neighbors.
 
@@ -10,18 +12,21 @@ Added WATO for Alias name, map check states to OSPF Neighbor state, state if nei
 
 Check Info:
 
-* *service*: ithe check creates one service for each OSPF neighnor
+* *service*: ithe check creates one service for each OSPF neighbor with the neighbor IP as item
 * *state*: 
     * **critical** if the neighbor state is *down*
     * **warning** if the neighbor is not in *full* or *2-way* state
     * **unknown** if the agent output is invalid
 * *wato*: 
-    * configure check state for the different OSPF neighbor states, 
+    * configure monitoring state for the different OSPF neighbor states, 
     * configure a alias for each OSPF neighbor
-    * configure the check state if the OSPF neighbor not found in the SNMP data (default is UNKNOWN)
+    * configure the monitoring state if the OSPF neighbor is not found in the SNMP data (default is UNKNOWN)
 * *perfdata*: OSPF neighbor events (count)
 
 Sample output
 
-![sample output](/doc/sample.png?raw=true "sample [SHORT TITLE]")
+![sample output](/doc/sample.png?raw=true "sample output")
 
+WATO options
+
+![WATO options](/doc/wato.png?raw=true "WATO options")
