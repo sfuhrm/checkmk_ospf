@@ -18,9 +18,10 @@ Check Info:
     * **warning** if the neighbor is not in *full* or *2-way* state
     * **unknown** if the agent output is invalid
 * *wato*: 
-    * configure monitoring state for the different OSPF neighbor states, 
+    * default monitoring state if neighbor not found in SNMP data
+    * configure monitoring state for the different OSPF neighbor states
     * configure a alias for each OSPF neighbor
-    * configure the monitoring state if the OSPF neighbor is not found in the SNMP data (default is UNKNOWN)
+    * configure the monitoring state if the OSPF neighbor is not found in the SNMP data
 * *perfdata*: OSPF neighbor events (count)
 
 Sample output
