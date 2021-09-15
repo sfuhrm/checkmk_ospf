@@ -23,8 +23,15 @@ from cmk.gui.plugins.metrics import (
 metric_info['ospf_neighbor_ospf_events'] = {
     'title': _('Events'),
     'unit': 'count',
-    'color': '26/a',
+    'color': '16/a',
 }
+
+metric_info['ospf_neighbor_ospf_retransmission_queue_length'] = {
+    'title': _('Retransmission queue length'),
+    'unit': 'count',
+    'color': '36/a',
+}
+
 
 ######################################################################################################################
 #
@@ -39,6 +46,12 @@ graph_info['ospf_neighbor_ospf_events'] = {
     ],
 }
 
+graph_info['ospf_neighbor_ospf_retransmission_queue_length'] = {
+    'title': _('OSPF neighbor Retransmission queue length'),
+    'metrics': [
+        ('ospf_neighbor_ospf_retransmission_queue_length', 'area'),
+    ],
+}
 ######################################################################################################################
 #
 # define perf-o-meter for OSPF neighbor events
@@ -48,5 +61,5 @@ graph_info['ospf_neighbor_ospf_events'] = {
 perfometer_info.append({
     'type': 'linear',
     'segments': ['ospf_neighbor_ospf_events'],
-    'total': 100,
+    # 'total': 100,
 })

@@ -40,30 +40,41 @@
 ###############################################################################
 
 # Example Agent Output:
-# OSPF-MIB
+# OSPF-MIB::ospfNbrEntry
 
-# 1.3.6.1.2.1.14.10.1.1.172.20.2.214.0 = IpAddress: 172.20.2.214
-# 1.3.6.1.2.1.14.10.1.2.172.20.2.214.0 = INTEGER: 0
-# 1.3.6.1.2.1.14.10.1.3.172.20.2.214.0 = IpAddress: 192.168.1.2
-# 1.3.6.1.2.1.14.10.1.4.172.20.2.214.0 = INTEGER: 2
-# 1.3.6.1.2.1.14.10.1.5.172.20.2.214.0 = INTEGER: 1
-# 1.3.6.1.2.1.14.10.1.6.172.20.2.214.0 = INTEGER: 8
-# 1.3.6.1.2.1.14.10.1.7.172.20.2.214.0 = Counter32: 6
-# 1.3.6.1.2.1.14.10.1.8.172.20.2.214.0 = Gauge32: 0
-# 1.3.6.1.2.1.14.10.1.9.172.20.2.214.0 = INTEGER: 1
-# 1.3.6.1.2.1.14.10.1.10.172.20.2.214.0 = INTEGER: 1
-# 1.3.6.1.2.1.14.10.1.11.172.20.2.214.0 = INTEGER: 2
+# .1.3.6.1.2.1.14.10.1.1.172.17.108.52.0 = IpAddress: 172.17.108.52
+# .1.3.6.1.2.1.14.10.1.1.172.17.108.60.0 = IpAddress: 172.17.108.60
+# .1.3.6.1.2.1.14.10.1.2.172.17.108.52.0 = INTEGER: 0
+# .1.3.6.1.2.1.14.10.1.2.172.17.108.60.0 = INTEGER: 0
+# .1.3.6.1.2.1.14.10.1.3.172.17.108.52.0 = IpAddress: 10.253.128.139
+# .1.3.6.1.2.1.14.10.1.3.172.17.108.60.0 = IpAddress: 10.253.128.139
+# .1.3.6.1.2.1.14.10.1.4.172.17.108.52.0 = INTEGER: 2
+# .1.3.6.1.2.1.14.10.1.4.172.17.108.60.0 = INTEGER: 2
+# .1.3.6.1.2.1.14.10.1.5.172.17.108.52.0 = INTEGER: 1
+# .1.3.6.1.2.1.14.10.1.5.172.17.108.60.0 = INTEGER: 1
+# .1.3.6.1.2.1.14.10.1.6.172.17.108.52.0 = INTEGER: 8
+# .1.3.6.1.2.1.14.10.1.6.172.17.108.60.0 = INTEGER: 8
+# .1.3.6.1.2.1.14.10.1.7.172.17.108.52.0 = Counter32: 6
+# .1.3.6.1.2.1.14.10.1.7.172.17.108.60.0 = Counter32: 6
+# .1.3.6.1.2.1.14.10.1.8.172.17.108.52.0 = Gauge32: 0
+# .1.3.6.1.2.1.14.10.1.8.172.17.108.60.0 = Gauge32: 0
+# .1.3.6.1.2.1.14.10.1.9.172.17.108.52.0 = INTEGER: 1
+# .1.3.6.1.2.1.14.10.1.9.172.17.108.60.0 = INTEGER: 1
+# .1.3.6.1.2.1.14.10.1.10.172.17.108.52.0 = INTEGER: 1
+# .1.3.6.1.2.1.14.10.1.10.172.17.108.60.0 = INTEGER: 1
+# .1.3.6.1.2.1.14.10.1.11.172.17.108.52.0 = INTEGER: 2
+# .1.3.6.1.2.1.14.10.1.11.172.17.108.60.0 = INTEGER: 2
 #
 # sample parsed
 # {
-#  '172.17.108.52': {'helperage': '', 'prio': '1', 'permanence': 'dynamic', 'helperstatus': '', 'options': '2',
-#                    'state': '8', 'hellosup': 'false', 'helperexitreason': '', 'events': 6, 'rtrid': '10.250.128.130'},
-#  '172.17.108.60': {'helperage': '', 'prio': '1', 'permanence': 'dynamic', 'helperstatus': '', 'options': '2',
-#                    'state': '8', 'hellosup': 'false', 'helperexitreason': '', 'events': 6, 'rtrid': '10.253.128.101'},
-#  '172.17.108.58': {'helperage': '', 'prio': '1', 'permanence': 'dynamic', 'helperstatus': '', 'options': '2',
-#                    'state': '8', 'hellosup': 'false', 'helperexitreason': '', 'events': 12, 'rtrid': '172.17.0.2'},
-#  '172.17.108.49': {'helperage': '', 'prio': '1', 'permanence': 'dynamic', 'helperstatus': '', 'options': '2',
-#                    'state': '8', 'hellosup': 'false', 'helperexitreason': '', 'events': 9, 'rtrid': '172.17.0.2'}
+#  '172.17.108.52': OspfNeighbor(
+#       rtrid='10.253.128.139', options='not a stub area', prio='1', state='8', events=6,
+#       permanence='dynamic', hellosup='false', helperstatus='', helperage='', helperexitreason=''
+#      ),
+#  '172.17.108.60': OspfNeighbor(
+#       rtrid='10.253.128.139', options='not a stub area', prio='1', state='8', events=6,
+#       permanence='dynamic', hellosup='false', helperstatus='', helperage='', helperexitreason=''
+#      )
 # }
 #
 
@@ -93,6 +104,7 @@ class OspfNeighbor:
     prio: str
     state: str
     events: int
+    lsretransqlen: int
     permanence: str
     hellosup: str
     helperstatus: str
@@ -158,7 +170,7 @@ def parse_ospf_neighbor(string_table: StringTable) -> Dict[str, OspfNeighbor]:
             return options
 
     parsed = {}
-    for ip, rtrid, options, prio, state, events, permanence, hellosup, helperstatus, helperage, \
+    for ip, rtrid, options, prio, state, events, lsretransqlen, permanence, hellosup, helperstatus, helperage, \
         helperexitreason in string_table:
         parsed[ip] = OspfNeighbor(
             rtrid=rtrid,
@@ -166,6 +178,7 @@ def parse_ospf_neighbor(string_table: StringTable) -> Dict[str, OspfNeighbor]:
             prio=prio,
             state=state,
             events=int(events),
+            lsretransqlen=int(lsretransqlen),
             permanence=ospf_nbr_permanence(str(permanence)),
             hellosup=ospf_nbr_hellosuppressed(hellosup),
             helperstatus=ospf_nbr_helperstatus(helperstatus),
@@ -204,7 +217,7 @@ def check_ospf_neighbor(item, params, section: Dict[str, OspfNeighbor]) -> Check
         '8': 0,  # full
     }
 
-    not_found_state = params['state_not_found', 3]
+    not_found_state = params['state_not_found']
 
     for neighbour, neighbourAlias, neighbourNotFoundState in params.get('peer_list', []):
         if item == neighbour:
@@ -221,9 +234,10 @@ def check_ospf_neighbor(item, params, section: Dict[str, OspfNeighbor]) -> Check
 
     neighborstate.update(params.get('neighborstate', neighborstate))  # update neighborstatus with params
 
-    yield Result(state=State(neighborstate.get(neighbor.state, 3)), summary=f'Status {ospf_nbr_state(neighbor.state)}')
+    yield Result(state=State(neighborstate.get(neighbor.state, 3)), summary=f'Status: {ospf_nbr_state(neighbor.state)}')
 
     yield Metric(value=neighbor.events, name='ospf_neighbor_ospf_events')
+    yield Metric(value=neighbor.lsretransqlen, name='ospf_neighbor_ospf_retransmission_queue_length')
 
     for text, value in [
         ('options', neighbor.options),
@@ -244,17 +258,18 @@ register.snmp_section(
     fetch=SNMPTree(
         base='.1.3.6.1.2.1.14.10.1',  # OSPF-MIB::ospfNbrEntry
         oids=[
-            '1',  # 'ospfNbrIpAddr'
-            '3',  # 'ospfNbrRtrId'
-            '4',  # 'ospfNbrOptions'
-            '5',  # 'ospfNbrPriority'
-            '6',  # 'ospfNbrState
-            '7',  # 'ospfNbrEvents'
-            '10',  # 'ospfNbrPermanence'
-            '11',  # 'ospfNbrHelloSuppressed'
-            '12',  # 'ospfNbrRestartHelperStatus'
-            '13',  # 'ospfNbrRestartHelperAge'
-            '14',  # 'ospfNbrRestartHelperExitReason'
+            '1',  # ospfNbrIpAddr
+            '3',  # ospfNbrRtrId
+            '4',  # ospfNbrOptions
+            '5',  # ospfNbrPriority
+            '6',  # ospfNbrStat
+            '7',  # ospfNbrEvents
+            '8',  # ospfNbrLSRetransQLen
+            '10',  # ospfNbrPermanence
+            '11',  # ospfNbrHelloSuppressed
+            '12',  # ospfNbrRestartHelperStatus
+            '13',  # ospfNbrRestartHelperAge
+            '14',  # ospfNbrRestartHelperExitReason
         ]
     ),
     detect=exists('.1.3.6.1.2.1.14.10.1.1.*')
