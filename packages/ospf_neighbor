@@ -1,13 +1,23 @@
-{'author': u'Thomas Wollner',
- 'description': u'OSPF Neighborship State Check\nchanges by thl-cmk[at]outlook[dot]com]\n2018-06-15: changed item from neighbor id to neighbor address\n            added events as perfdata (incl. metrics file)\n            moved part of the output to long output\n2020-07-26: added parse section, alias, wato for alias and state\n',
- 'download_url': 'http://exchange.check-mk.org/',
- 'files': {'checkman': ['ospf_neighbor'],
-           'checks': ['ospf_neighbor'],
+{'author': 'Th.L. (thl-cmk[at]outlook[dot]com)',
+ 'description': 'based on OSPF Neighbor State Check by Thomas Wollner\n'
+                '\n'
+                'changes by thl-cmk[at]outlook[dot]com]\n'
+                '2018-06-15: changed item from neighbor id to neighbor '
+                'address\n'
+                '            added events as perfdata (incl. metrics file)\n'
+                '            moved part of the output to long output\n'
+                '2020-07-26: added parse section, alias, wato for alias and '
+                'state\n'
+                '2021-09-15: rewritten for CMK 2.0\n',
+ 'download_url': 'https://thl-cmk.hopto.org',
+ 'files': {'agent_based': ['ospf_neighbor.py'],
+           'checkman': ['ospf_neighbor'],
            'web': ['plugins/metrics/ospf_neighbor.py',
                    'plugins/wato/ospf_neighbor.py']},
  'name': 'ospf_neighbor',
  'num_files': 4,
- 'title': u'OSPF Neighbor State Check',
- 'version': '20200726.v1.3',
- 'version.min_required': '1.2.8b8',
- 'version.packaged': '1.4.0p38'}
+ 'title': 'OSPF Neighbor State Check',
+ 'version': '20210915.v1.4',
+ 'version.min_required': '2.0.0',
+ 'version.packaged': '2021.07.14',
+ 'version.usable_until': None}

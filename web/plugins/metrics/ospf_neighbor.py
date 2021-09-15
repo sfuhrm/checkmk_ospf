@@ -1,18 +1,18 @@
-#!/usr/bin/python
-# -*- encoding: utf-8; py-indent-offset: 4 -*-
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 #
 # OSPF neighbor metrics plugin
 #
 # Author: Th.L.
 # Date  : 2018-06-15
 #
+from cmk.gui.i18n import _
 
-#####################################################################################################################
-#
-# define units for OSPF neighbor perfdata
-#
-#####################################################################################################################
-
+from cmk.gui.plugins.metrics import (
+    metric_info,
+    graph_info,
+    perfometer_info
+)
 
 #####################################################################################################################
 #
@@ -26,29 +26,18 @@ metric_info['ospf_neighbor_ospf_events'] = {
     'color': '26/a',
 }
 
-
-######################################################################################################################
-#
-# map OSPF neighbor perfdata to metric
-#
-######################################################################################################################
-
-check_metrics['check_mk-ospf_neighbor'] = {
-    'ospf_events': {'name': 'ospf_neighbor_ospf_events', },
-}
-
 ######################################################################################################################
 #
 # how to graph perdata for OSPF neighbor
 #
 ######################################################################################################################
 
-graph_info.append({
+graph_info['ospf_neighbor_ospf_events'] = {
     'title': _('OSPF neighbor events'),
     'metrics': [
         ('ospf_neighbor_ospf_events', 'area'),
     ],
-})
+}
 
 ######################################################################################################################
 #
@@ -57,7 +46,7 @@ graph_info.append({
 ######################################################################################################################
 
 perfometer_info.append({
-        'type': 'linear',
-        'segments': ['ospf_neighbor_ospf_events'],
-        'total': 100,
-    })
+    'type': 'linear',
+    'segments': ['ospf_neighbor_ospf_events'],
+    'total': 100,
+})
