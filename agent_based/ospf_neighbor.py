@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-#
 ###############################################################################
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -182,7 +181,7 @@ def discovery_ospf_neighbor(section: Dict[str, OspfNeighbor]) -> DiscoveryResult
 
 
 def check_ospf_neighbor(item, params, section: Dict[str, OspfNeighbor]) -> CheckResult:
-    def ospf_nbr_state(st):
+    def ospf_nbr_state(st: str) -> str:
         names = {'1': 'down',
                  '2': 'attempt',
                  '3': 'init',
@@ -193,7 +192,7 @@ def check_ospf_neighbor(item, params, section: Dict[str, OspfNeighbor]) -> Check
                  '8': 'full'}
         return names.get(st, 'unknown: %s' % st)
 
-    # default checkmk states for ospfNbrState
+    # default monitoring states for ospfNbrState
     neighborstate = {
         '1': 2,  # down
         '2': 1,  # attempt
@@ -205,18 +204,18 @@ def check_ospf_neighbor(item, params, section: Dict[str, OspfNeighbor]) -> Check
         '8': 0,  # full
     }
 
-    notFoundState = 2
+    not_found_state = params['state_not_found', 3]
 
     for neighbour, neighbourAlias, neighbourNotFoundState in params.get('peer_list', []):
         if item == neighbour:
             yield Result(state=State.OK, summary=f'[{neighbourAlias}]')
-            notFoundState = neighbourNotFoundState
+            not_found_state = neighbourNotFoundState
 
     try:
         neighbor = section[item]
     except KeyError:
-        yield Result(state=State(notFoundState), notice='Item not found in SNMP data')
-        return 
+        yield Result(state=State(not_found_state), notice='Item not found in SNMP data')
+        return
 
     yield Result(state=State.OK, summary=f'Neighbor ID: {neighbor.rtrid}')
 
@@ -267,6 +266,7 @@ register.check_plugin(
     discovery_function=discovery_ospf_neighbor,
     check_function=check_ospf_neighbor,
     check_default_parameters={
+        'state_not_found': 3,
     },
     check_ruleset_name='ospf_neighbor',
 )

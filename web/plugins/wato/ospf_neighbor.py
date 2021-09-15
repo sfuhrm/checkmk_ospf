@@ -32,6 +32,12 @@ def _parameter_valuespec_ospf_neighbor():
     return Transform(
         Dictionary(
             elements=[
+                ('state_not_found',
+                 MonitoringState(
+                     title=_('State to report if neighbor not found'),
+                     help=_('Monitoring state if the neighbor not found in the SNMP data.'),
+                     default_value=3,
+                 )),
                 ('neighborstate',
                  Dictionary(
                      title=_('State to report for OSPF neighbor state'),
