@@ -195,14 +195,16 @@ def discovery_ospf_neighbor(section: Dict[str, OspfNeighbor]) -> DiscoveryResult
 
 def check_ospf_neighbor(item, params, section: Dict[str, OspfNeighbor]) -> CheckResult:
     def ospf_nbr_state(st: str) -> str:
-        names = {'1': 'down',
-                 '2': 'attempt',
-                 '3': 'init',
-                 '4': 'twoWay',
-                 '5': 'exchangeStart',
-                 '6': 'exchange',
-                 '7': 'loading',
-                 '8': 'full'}
+        names = {
+            '1': 'down',
+            '2': 'attempt',
+            '3': 'init',
+            '4': 'twoWay',
+            '5': 'exchangeStart',
+            '6': 'exchange',
+            '7': 'loading',
+            '8': 'full'
+        }
         return names.get(st, 'unknown: %s' % st)
 
     # default monitoring states for ospfNbrState

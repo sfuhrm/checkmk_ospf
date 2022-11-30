@@ -19,5 +19,5 @@
  'title': 'OSPF Neighbor State Check',
  'version': '20210915.v1.4a',
  'version.min_required': '2.0.0',
- 'version.packaged': '2021.07.14',
+ 'version.packaged': '2021.09.20',
  'version.usable_until': None}
