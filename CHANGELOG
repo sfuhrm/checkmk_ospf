@@ -4,3 +4,5 @@
             a little code cleanup to better match coding guide lines
 2019-11-03: moved 'events' from infotext to longoutput
 2020-07-26: added parse section, alias, wato for alias, not found and state
+2021-09-15: rewritten for CMK 2.0
+2023-04-22: moved wato/metrics file to ~/local/lib/check_mk/gui/plugins/(wato|metrics)

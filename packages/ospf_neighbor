@@ -8,16 +8,15 @@
                 '            moved part of the output to long output\n'
                 '2020-07-26: added parse section, alias, wato for alias and '
                 'state\n'
-                '2021-09-15: rewritten for CMK 2.0\n',
+                '2021-09-15: rewritten for CMK 2.0\n'
+                '2023-04-22: moved wato/metrics to new structure\n',
  'download_url': 'https://thl-cmk.hopto.org',
  'files': {'agent_based': ['ospf_neighbor.py'],
            'checkman': ['ospf_neighbor'],
-           'web': ['plugins/metrics/ospf_neighbor.py',
-                   'plugins/wato/ospf_neighbor.py']},
+           'gui': ['metrics/ospf_neighbor.py', 'wato/ospf_neighbor.py']},
  'name': 'ospf_neighbor',
- 'num_files': 4,
  'title': 'OSPF Neighbor State Check',
- 'version': '20210915.v1.4a',
- 'version.min_required': '2.0.0',
+ 'version': '1.4.1-20230422',
+ 'version.min_required': '2.1.0b1',
  'version.packaged': '2.1.0p21',
  'version.usable_until': None}
