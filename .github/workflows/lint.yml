@@ -1,5 +1,10 @@
 name: Lint
 
+on:
+  push:
+    branches:
+    - '**'
+  
 jobs:
   flake8_py3:
 
